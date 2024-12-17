@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Maze Game</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <title>Maze Game</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      </head>
+      <body>
+        <audio id="fogOn" src="./fog-on.wav" preload="auto"></audio>
+        <audio id="fogOff" src="./fog-off.wav" preload="auto"></audio>
+        <audio id="victory" src="./victory.wav" preload="auto"></audio>
+        <audio id="wall" src="./wall.wav" preload="auto"></audio>
+
+        <div id="gradient"></div>
+        <div id="page">
+          <div id="Message-Container">
+            <div id="message">
+              <h1>Congratulations!</h1>
+              <p>You are done.</p>
+              <p id="moves" style="width: 500px; margin-left: -100px"></p>
+              <input
+                id="okBtn"
+                type="button"
+                onclick="toggleVisablity('Message-Container')"
+                value="Cool!"
+              />
+            </div>
+          </div>
+
+          <div id="menu">
+            <div class="custom-select">
+              <select id="diffSelect">
+                <option value="10">Easy</option>
+                <option value="15">Medium</option>
+                <option value="25">Hard</option>
+                <option value="38">Extreme</option>
+                <option value="custom">Custom</option>
+              </select>
+
+              <input
+                type="number"
+                id="customInput"
+                value="5"
+                min="3"
+                max="100"
+                style="visibility: hidden"
+              />
+            </div>
+
+            <input
+              id="startMazeBtn"
+              type="button"
+              onclick="makeMaze()"
+              value="Start"
+            />
+            <!-- 雾 -->
+            <label
+              for="fogCheckbox"
+              style="font-weight: 400; color: aliceblue; margin-left: 64.5px"
+            >
+              Fog:
+            </label>
+            <input type="checkbox" id="fogCheckbox" />
+            <f
+              pr="/2d379036576104e79cb061b5c2d3eb15.jpg
+"
+            >
+              Tips
+            </f>
+          </div>
+
+          <div id="view">
+            <div id="mazeContainer">
+              <canvas
+                id="mazeCanvas"
+                class="border"
+                height="1100"
+                width="1100"
+              ></canvas>
+            </div>
+          </div>
+        </div>
+        <script
+          type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+        ></script>
+        <script
+          type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"
+        ></script>
+        <!-- partial -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+        <script src="./script.js"></script>
+        <script>
+          // dialog
+          var formulas = document.querySelectorAll("f");
+          for (var i = 0; i < formulas.length; i++) {
+            formulas[i].onclick = function (event) {
+              var proof = this.getAttribute("pr");
+              if (proof) {
+                var dialog = document.createElement("dialog");
+                dialog.innerHTML = proof;
+                document.body.appendChild(dialog);
+                dialog.showModal();
+                关闭(dialog);
+                // 渲染dialog中的LaTeX公式
+                MathJax.typeset([dialog]);
+
+                // 当dialog显示时，动态调整网页内容的宽度
+                document.body.style.width = "calc(100% - 600px)";
+              }
+            };
+          }
+
+          // 关闭对话框的函数，如果点击位置不在对话框内部
+          function 关闭(dialog) {
+            dialog.addEventListener("click", function (event) {
+              // 获取点击位置相对于对话框左上角的坐标
+              let x = event.clientX - dialog.offsetLeft;
+              let y = event.clientY - dialog.offsetTop;
+              // 判断点击位置是否在对话框内部
+              if (
+                x < 0 ||
+                x > dialog.offsetWidth ||
+                y < 0 ||
+                y > dialog.offsetHeight
+              ) {
+                // 如果不在，就关闭对话框
+                dialog.close();
+
+                // 当dialog关闭时，恢复网页内容的宽度
+                document.body.style.width = "calc(100%)";
+              }
+            });
+          }
+        </script>
+      </body>
+    </html>
+    <!-- partial -->
+    <script src="./script.js"></script>
+  </body>
+</html>
