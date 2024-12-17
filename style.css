@@ -1,0 +1,307 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#mazeContainer {
+  transition-property: opacity;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  top: 75px;
+  opacity: 0;
+  display: inline-block;
+  background: radial-gradient(circle at 50% 50%, #7B7B7B 20%, #5C5C5C);
+  margin: auto;
+}
+#mazeContainer #mazeCanvas {
+  margin: 0;
+  display: block;
+  border: solid 1px black;
+}
+
+input,
+select {
+  transition-property: background-color opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+  background: radial-gradient(circle at 50% 50%, #0058FF 20%, #000);
+  height: 45px;
+  width: 150px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: inline-block;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+
+#customInput {
+  height: 25px;
+  width: 80px;
+}
+
+
+#fogCheckbox {
+  vertical-align: middle;
+  margin-left: 1px;
+  width: 45px;
+}
+
+#fogCheckbox:checked::after {
+  content: "\2713"; /* 对勾符号 */
+  display: inline-block;
+  font-size: 1.2em;
+}
+
+input:hover,
+select:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+input:active,
+select:active {
+  background-color: black;
+}
+input:focus,
+select:focus {
+  outline: none;
+}
+
+.custom-select {
+  display: inline-block;
+}
+.custom-select select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC");
+  background-repeat: no-repeat;
+  background-position: 125px center;
+}
+
+#Message-Container {
+  visibility: hidden;
+  color: white;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+#Message-Container #message {
+  width: 300px;
+  height: 300px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -150px;
+}
+
+#page {
+  font-family: "Segoe UI", Arial, sans-serif;
+  text-align: center;
+  height: auto;
+  width: auto;
+  margin: auto;
+}
+#page #menu {
+  margin: auto;
+  padding: 10px;
+  height: 65px;
+  box-sizing: border-box;
+}
+#page #menu h1 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 3.2rem;
+}
+#page #view {
+  position: absolute;
+  top: 65px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: auto;
+}
+
+.border {
+  border: 1px black solid;
+  border-radius: 5px;
+}
+
+#gradient {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  color: #fff;
+  background: radial-gradient(circle at 50% 50%, #192233 20%, #000);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 400px) {
+  input,
+  select {
+    width: 120px;
+  }
+}
+
+/* Dialog */
+dialog::-webkit-scrollbar {
+  display: none;
+}
+
+b {
+  color: chocolate;
+}
+
+/* 自定义元素 */
+f {
+  display: inline-block;
+  padding: 10px;
+  margin-left: 45px;
+  border-radius: 5px;
+  --tw-bg-opacity: 1;
+  background-color: rgba(68, 70, 84, var(--tw-bg-opacity));
+  transition-property: background-color opacity;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 25px;
+  width: 120px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+f:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* 外观 */
+dialog {
+  width: 600px;
+  height: 100%;
+  border: 2px solid green;
+  --tw-bg-opacity: 1;
+  background-color: rgba(68, 70, 84, var(--tw-bg-opacity));
+  color: lime;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  position: fixed;
+  margin-left: 69%;
+}
+
+/* 标题栏 */
+dialog::before {
+  content: "HACKER DIALOG";
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  padding-left: 10px;
+  border-bottom: 2px solid green;
+}
+
+/* 关闭按钮 */
+dialog::after {
+  content: "X";
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  border: 2px solid green;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+dialog::before,
+dialog::after {
+  animation-name: blink;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.score {
+  font-size: 30px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+#okBtn {
+  height: 80px;
+  width: 200px;
+  background-color: #656565;
+}
+
+#okBtn:hover {
+  background-color: #999999;
+}
+ 
